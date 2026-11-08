@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Settlement Guard | Payments reliability</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="site-header">
+    <a class="brand" href="/">settlement<span>//</span>guard</a>
+    <nav aria-label="Primary">
+        <a href="/">Dashboard</a>
+        <a href="/actuator/health">Health</a>
+        <a href="/actuator/prometheus">Metrics</a>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <p class="eyebrow">PAYMENTS RELIABILITY</p>
+        <h1>Settlement Guard</h1>
+        <p class="lede">
+            An out-of-order-tolerant settlement and reconciliation engine for payment switches.
+            It parks settlements that arrive before authorisation, prevents duplicate settlement,
+            and turns reconciliation breaks into an explicit, auditable queue.
+        </p>
+        <button id="refresh" class="button" type="button">Refresh snapshot</button>
+    </section>
+
+    <section aria-labelledby="summary-title">
+        <h2 id="summary-title">Operational snapshot</h2>
+        <div class="cards">
+            <article class="card">
+                <p class="card-label">Events</p>
+                <p class="card-value" id="events-total">—</p>
+                <p class="card-meta" id="events-meta">Loading…</p>
+            </article>
+            <article class="card">
+                <p class="card-label">Parked settlements</p>
+                <p class="card-value" id="events-parked">—</p>
+                <p class="card-meta">Waiting for an authorization</p>
+            </article>
+            <article class="card">
+                <p class="card-label">Reconciliation breaks</p>
+                <p class="card-value" id="breaks-total">—</p>
+                <p class="card-meta">Across all runs</p>
+            </article>
+            <article class="card">
+                <p class="card-label">Ledger</p>
+                <p class="card-value" id="ledger-status">—</p>
+                <p class="card-meta" id="ledger-meta">Debits and credits</p>
+            </article>
+        </div>
+    </section>
+
+    <section aria-labelledby="latest-title">
+        <h2 id="latest-title">Latest reconciliation</h2>
+        <p class="run-line" id="latest-run">No reconciliation run yet.</p>
+    </section>
+
+    <section aria-labelledby="events-title">
+        <h2 id="events-title">Recent events</h2>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                <tr>
+                    <th scope="col">RRN</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Received</th>
+                </tr>
+                </thead>
+                <tbody id="events-body">
+                <tr><td colspan="5">Loading…</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>Clean-room reference implementation. Built with Java 17, Spring Boot, Kafka-ready events, MySQL and Python reconciliation.</p>
+</footer>
+
+<script src="/app.js" defer></script>
+</body>
+</html>

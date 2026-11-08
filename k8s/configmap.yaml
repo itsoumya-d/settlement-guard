@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: settlement-guard-config
+data:
+  DB_URL: jdbc:mysql://mysql:3306/settlement_guard?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+  DB_USERNAME: settlement
+  KAFKA_ENABLED: "true"
+  KAFKA_BOOTSTRAP_SERVERS: redpanda:29092
+  KAFKA_TOPIC: payment-events
