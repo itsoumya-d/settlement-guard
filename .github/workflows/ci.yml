@@ -34,10 +34,10 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Run tests (includes MySQL Testcontainers when Docker is available)
-        run: ./gradlew test --no-daemon
+        run: gradle test --no-daemon
 
       - name: Build boot jar
-        run: ./gradlew bootJar --no-daemon
+        run: gradle bootJar --no-daemon
 
       - name: Upload test report
         if: always()

@@ -2,11 +2,10 @@
 
 FROM gradle:8.10.2-jdk17 AS build
 WORKDIR /workspace
-COPY settings.gradle build.gradle gradlew ./
+COPY settings.gradle build.gradle ./
 COPY gradle ./gradle
-RUN chmod +x gradlew
 COPY src ./src
-RUN ./gradlew bootJar --no-daemon -x test
+RUN gradle bootJar --no-daemon -x test
 
 FROM eclipse-temurin:17-jre-alpine
 RUN addgroup -S app && adduser -S app -G app
