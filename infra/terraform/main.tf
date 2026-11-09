@@ -20,8 +20,8 @@ resource "aws_sqs_queue" "payment_events_dlq" {
 }
 
 resource "aws_sqs_queue" "payment_events" {
-  name                      = "${var.name_prefix}-payment-events"
-  message_retention_seconds = 345600
+  name                       = "${var.name_prefix}-payment-events"
+  message_retention_seconds  = 345600
   visibility_timeout_seconds = 60
 
   redrive_policy = jsonencode({
