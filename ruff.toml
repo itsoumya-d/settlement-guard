@@ -1,0 +1,7 @@
+# Ruff configuration for settlement-guard
+target-version = "py311"
+line-length = 120
+
+[lint]
+select = ["E", "F", "W"]
+ignore = ["E501"]

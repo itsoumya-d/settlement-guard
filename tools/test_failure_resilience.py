@@ -1,5 +1,4 @@
 """Failure injection and error path resilience verification."""
-import pytest
 
 
 def test_database_connection_failure_graceful_degradation():

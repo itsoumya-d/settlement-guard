@@ -17,7 +17,6 @@ import argparse
 import csv
 import json
 import math
-from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
@@ -84,7 +83,7 @@ def validate_prudential_ratios(row: dict[str, Any]) -> dict[str, Any]:
 def detect_statistical_anomalies(
     current_return: dict[str, Any], historical_returns: list[dict[str, Any]]
 ) -> list[dict[str, Any]]:
-    anomalies = []
+    anomalies: list[dict[str, Any]] = []
     inst = current_return.get("institution_code")
     hist_inst = [h for h in historical_returns if h.get("institution_code") == inst]
     if len(hist_inst) < 3:
