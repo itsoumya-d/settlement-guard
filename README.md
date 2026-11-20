@@ -33,6 +33,7 @@ The common engineering failure mode is not the network outage itself. It is what
 5. **Operations visibility** — a Paymark-aligned dashboard shows events, parked settlements, reconciliation breaks and ledger balance.
 6. **Alerting hooks** — Micrometer/Prometheus metrics and Terraform alarms for parked settlements and reconciliation breaks.
 7. **Kafka-ready** — the same ingestion path is available through a Kafka listener; the HTTP API is the synchronous control plane.
+8. **Payment Pipeline Orchestrator & OLAP Warehouse Sync** (`tools/payment_pipeline_orchestrator.py`) — Real-time event ingestion with cryptographic SHA-256 idempotency fingerprinting, automated batch transformation to dimensional star schemas (Snowflake, BigQuery), and reconciliation observability with automated circuit-breaker trip triggers.
 
 ## Stack
 
