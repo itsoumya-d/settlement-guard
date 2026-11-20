@@ -3,7 +3,7 @@
 import datetime
 import decimal
 
-from tools.payment_pipeline_orchestrator import (
+from payment_pipeline_orchestrator import (
     PaymentEvent,
     PaymentEventIngestionPipeline,
     PaymentStatus,
