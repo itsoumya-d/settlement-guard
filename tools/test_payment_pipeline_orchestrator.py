@@ -2,7 +2,6 @@
 
 import datetime
 import decimal
-import pytest
 
 from tools.payment_pipeline_orchestrator import (
     PaymentEvent,
